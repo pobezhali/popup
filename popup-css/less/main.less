@@ -1,0 +1,107 @@
+body
+{
+    height: 100vh;
+
+    background: #fff url('../img/bg-image.jpg') center center no-repeat;
+    background-size: cover;
+}
+
+.popup-open
+{
+    position: fixed;
+    top: 7vh;
+    left: 50%;
+
+    display: block;
+
+    width: 80px;
+    height: 80px;
+
+    transform: translateX(-50%);
+
+    border-radius: 50%;
+    background-color: #fff;
+    box-shadow: 1px 1px 10px rgba(0,0,0,.4);
+    &::before
+    {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+
+        width: 14px;
+        height: 16px;
+
+        content: '';
+        transform: translate(-50%, -50%);
+
+        background-image: url('../img/arrows-down.png');
+        background-size: contain;
+    }
+}
+
+.popup
+{
+    display: none;
+    &-overlay
+    {
+        position: fixed;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+
+        display: none;
+
+        width: 100vw;
+        height: 100vh;
+        max-height: 100%;
+
+        background-color: rgba(150,184,215,.3);
+        &:target
+        {
+            display: block;
+            & + .popup
+            {
+                font-size: 24px;
+
+                position: fixed;
+                top: 20vh;
+                left: 50%;
+
+                display: block;
+                overflow-y: auto;
+
+                width: 50vw;
+                min-width: 200px;
+                height: 50vh;
+                min-height: 200px;
+                padding: 5rem 2rem;
+
+                transform: translateX(-50%);
+                text-align: center;
+
+                border-radius: 10%;
+                background-color: #fff;
+                box-shadow: 1px 1px 10px rgba(0,0,0,.4);
+            }
+        }
+    }
+}
+
+.popup-close
+{
+    font-size: 60px;
+    font-weight: 700;
+
+    position: absolute;
+    top: 2rem;
+    right: 2.5rem;
+
+    text-decoration: none;
+
+    color: rgba(0,0,0,.4);
+    &:hover
+    {
+        color: rgba(0,0,0,1);
+    }
+}
